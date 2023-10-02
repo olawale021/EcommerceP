@@ -1,0 +1,45 @@
+/* General styling */
+.trending-products-container {
+    padding: 80px;
+}
+
+.trending-products-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.trending-products-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Bree Serif', serif;
+}
+
+.trending-products-image {
+    display: block;
+    margin: 0 auto;
+    width: '30';
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .trending-products-image {
+        width: 100%;
+    }
+    .products-grid {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .trending-products-title {
+        font-size: 1.5rem;
+    }
+}

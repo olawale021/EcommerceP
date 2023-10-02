@@ -11,34 +11,36 @@ cloudinary.config({
 
 })
 
-router.post('/upload', auth, authAdmin, (req,res) =>{
+router.post('/upload', auth, authAdmin, async (req, res) => {
     try {
-        if(!req.files || Object.keys(req.files).length === 0)
-            return res.status(400).json({msg: 'No files were uploaded'})
+        if (!req.files || !req.files.files)
+            return res.status(400).json({ msg: 'No files were uploaded' });
 
-        const files= req.files.files;
+        const file = req.files.files;
 
-        console.log(files)
-        files.forEach((file) => {
-        if( files[0].mimetype !== 'image/jpeg' && files[0].mimetype !== 'image/png'){
-            removeTemp(files[0].tempFilePath)
-            return res.status(400).json({msg: 'file format is incorrect'})
-        }})
-    
+        console.log(file)
 
-        cloudinary.v2.uploader.upload(files[0].tempFilePath, {folder:"test"},
-            async(err,result)=>{
-                if(err) throw err;
-                removeTemp(files[0].tempFilePath)
-                res.json({public_id: result.public_id, url: result.secure_url})
-        })
+        if (file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
+            removeTemp(file.tempFilePath);
+            return res.status(400).json({ msg: 'File format is incorrect' });
+        }
 
-        // return res.status(200).json({msg: 'Successfully'})
-        
+        cloudinary.v2.uploader.upload(file.tempFilePath, { folder: "test" },
+            async (err, result) => {
+                if (err) {
+                    removeTemp(file.tempFilePath);
+                    return res.status(400).json({ msg: err.message });
+                } else {
+                    removeTemp(file.tempFilePath);
+                    res.json({ public_id: result.public_id, url: result.secure_url });
+                }
+            });
     } catch (err) {
-        return res.status(400).json({msg: err.message})
+        return res.status(400).json({ msg: err.message });
     }
-})
+});
+
+
 
 router.post('/destroy', auth, authAdmin, (req,res)=>{
     try {

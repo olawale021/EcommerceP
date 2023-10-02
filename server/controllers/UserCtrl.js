@@ -105,7 +105,7 @@ const userCtrl = {
             await Users.findOneAndUpdate({_id: req.user.id},{
                 cart:req.body.cart
             })
-            return res.json({msg: 'added to Cart'})
+            return res.json({msg: 'Added to Cart'})
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
