@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import DeleteIcon from './images/delete.svg'
 import './cart.css'
+import ShopCategories from '../../shopcategory/ShopCategories'
 
 function Cart() {
   const state = useContext(GlobalState)
@@ -66,32 +67,49 @@ function Cart() {
   
 
     if(cart.length === 0)
-    return <h2 style={{textAlign: 'center', fontSize: '5rem'}}>Cart Empty</h2>
-  return (
+    return (
+    <>
+    <h2 style={{textAlign: 'center', fontSize: '5rem', height: '500px'}}>Cart Empty</h2>
+    
     <div>
-      {
-        cart.map(product =>(
-          <div className='detail cart' key={product._id}>
-                <img src={product.images.url} alt=''/>
-                <div className='box-detail'>
-                        <h2>{product.title}</h2>
-                    <p style={{fontSize: '20px'}}>${product.price * product.quantity}</p>
-                    <p>{product.description}</p>
-                    <div className='amount'>
-                          <button onClick={()=> decrement(product._id)}> - </button>
-                          <span>{product.quantity}</span>
-                          <button onClick={()=> increment(product._id)}> + </button>
-                    </div>
-                    <div className="delete" onClick={()=>removeProduct(product._id)}> <img src={DeleteIcon} alt='' style={{width: '20px', height: '20px'}} /></div>
-                </div>
-        </div>
-        ))
-      }
-      <div className='total'>
-          <h3>Total : $ {total}</h3>
-          <Link to='#'>Payment</Link>
+        <ShopCategories />
       </div>
-    </div>
+      </>
+      )
+  return (
+    <>
+      <div>
+        {
+          cart.map(product =>(
+            <div className='detail cart' key={product._id}>
+                  <img src={product.images.url} alt=''/>
+                  <div className='box-detail'>
+                          <h2>{product.title}</h2>
+                      <p style={{fontSize: '20px'}}>${product.price * product.quantity}</p>
+                      <p>{product.description}</p>
+                      <div className='amount'>
+                            <button onClick={()=> decrement(product._id)}> - </button>
+                            <span>{product.quantity}</span>
+                            <button onClick={()=> increment(product._id)}> + </button>
+                      </div>
+                      <div className="delete" onClick={()=>removeProduct(product._id)}> <img src={DeleteIcon} alt='' style={{width: '20px', height: '20px'}} /></div>
+                  </div>
+          </div>
+          ))
+        }
+        <div className='total'>
+            <h3>Total : $ {total}</h3>
+            <Link to='#'>Payment</Link>
+        </div>
+      </div>
+
+      <div>
+        <ShopCategories />
+      </div>
+
+    </>
+    
+    
   )
 }
 

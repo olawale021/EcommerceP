@@ -1,13 +1,16 @@
 
+
+
 .login-page{
     max-width: 500px;
-    border:2px solid black;
-    height: 40vh;
-    margin:100px auto;
-    padding:10px;
+    width: 100%; /* To ensure the container fits the screen on mobile devices */
+    height: auto; /* let it adjust its height */
+    padding: 10px 5%; /* Reduce padding on smaller screens */
     border-radius: 7px;
-    background-color: white;
+    background-color: #FAF9F8;
+    box-sizing: border-box; /* To include padding in total width */
 }
+
 
 .login-page h2{
     text-transform: uppercase;

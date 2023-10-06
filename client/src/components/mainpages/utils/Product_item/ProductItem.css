@@ -11,7 +11,7 @@
 .product_card:hover{
     box-shadow: 10px 10px 15px rgb(48, 48, 48);
     border-radius: 10px;
-    background-color: floralwhite;
+    background-color: #FAF9F8;
     transform: scale(1.1);
 }
 .product_card img{
@@ -97,7 +97,9 @@
 }
 #btn_view:hover{
     transform: scale(0.65);
+    transition-duration: 2.2s;
 }
 #btn_buy:hover{
     transform: scale(0.65);
+    transition-duration: 2.2s;
 }

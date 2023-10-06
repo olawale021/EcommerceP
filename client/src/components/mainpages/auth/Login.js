@@ -2,8 +2,11 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../utils/Loading/Loading';
+import Oragnic from '../home/images/organic.png'
 
 import './Login.css';
+import ShopCategories from '../../shopcategory/ShopCategories';
+import CustomerReview from '../../customerreview/CustomerReview';
 
 function Login() {
     const [user, setUser] = useState({
@@ -36,36 +39,44 @@ function Login() {
     };
 
     return (
-        <div className='login-page'>
-            <h2>Login</h2>
-            <form onSubmit={loginSubmit}>
-                <input
-                    type='email'
-                    name='email'
-                    required
-                    placeholder='Email'
-                    onChange={onChangeInput}
-                    value={user.email}
-                />
-                <input
-                    type='password'
-                    name='password'
-                    required
-                    placeholder='Password'
-                    value={user.password}
-                    onChange={onChangeInput}
-                />
+        <>
+        <div className=''> 
+                <div className='login-page'>
+                    <h2>Log in to your account</h2> <br/><br/><br/>
+                    <form onSubmit={loginSubmit}>
+                        <input
+                            type='email'
+                            name='email'
+                            required
+                            placeholder='Email'
+                            onChange={onChangeInput}
+                            value={user.email}
+                        />
+                        <input
+                            type='password'
+                            name='password'
+                            required
+                            placeholder='Password'
+                            value={user.password}
+                            onChange={onChangeInput}
+                        />
 
-                <div className='row'>
-                    <button type='submit' disabled={loading}>
-                        {loading ? 'Logging in...' : 'Login'}
-                    </button>
-                    <Link to='/register'>Register</Link>
+                        <div className='row'>
+                            <button type='submit' disabled={loading}>
+                                {loading ? 'Logging in...' : 'Login'}
+                            </button>
+                            <Link to='/register'>Register</Link>
+                        </div>
+                    </form>
+
+                    {/* {loading && <div className='loading-message'><Loading/></div>} */}
                 </div>
-            </form>
-
-            {/* {loading && <div className='loading-message'><Loading/></div>} */}
         </div>
+         <ShopCategories />
+         <div>
+            <CustomerReview/>
+         </div>
+         </>
     );
 }
 

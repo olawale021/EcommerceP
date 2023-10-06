@@ -10,30 +10,27 @@ import HomePage from './home/HomePage'
 import { GlobalState } from '../../GlobalState'
 import Categories from './categories/Categories'
 import CreateProduct from '../mainpages/createProduct/createProduct'
+import CategoryProducts from './categories/CategoryProducts'
 
 
 function Pages() {
     const state = useContext(GlobalState)
-  const [isLogged] = state.userAPI.isLogged
-  return (
-   
-
-
-    <Routes>
-        <Route path='/' exact Component={HomePage}/>
-        <Route path='/login'  Component={isLogged ? NotFound : Login}/>
-        <Route path='/category'  Component={isLogged ? Categories : Login}/>
-        <Route path='/create_product'  Component={isLogged ? CreateProduct : Login}/>
-        <Route path='products/edit_product/:id'  Component={isLogged ? CreateProduct : Login}/>
-        <Route path='/register'  Component={Register}/>
-        <Route path='/cart'  Component={Cart}/>
-        <Route path='/products'  Component={isLogged ? Products : Login}/>
-        <Route path='products/detail/:id'  Component={DetailProduct}/>
-
-        <Route path='*'  Component={NotFound}/>
-
-    </Routes>
-  )
+    const [isLogged] = state.userAPI.isLogged
+    return (
+        <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/category' element={isLogged ? <Categories /> : <Login />} />
+            <Route path='/create_product' element={isLogged ? <CreateProduct /> : <Login />} />
+            <Route path='products/edit_product/:id' element={isLogged ? <CreateProduct /> : <Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/products' element={isLogged ? <Products /> : <Login />} />
+            <Route path='products/detail/:id' element={<DetailProduct />} />
+            <Route path="/category/:category" element={<CategoryProducts />} />
+            <Route path='*' element={<NotFound />} />
+        </Routes>
+    )
 }
 
 export default Pages

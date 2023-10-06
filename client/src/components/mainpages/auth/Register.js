@@ -1,6 +1,8 @@
 import React ,{useState} from 'react'
 import {Link} from "react-router-dom"
 import axios from "axios"
+import ShopCategories from '../../shopcategory/ShopCategories'
+import CustomerReview from '../../customerreview/CustomerReview'
 function Register() {
     const [user, setUser] = useState({
         name:'', email:'', password:''
@@ -21,24 +23,30 @@ function Register() {
         }
     }
     return (
-        <div className="login-page">
-            <form onSubmit={registerSubmit}>
-                <h2>Register</h2>
-            <input type="text" name="name" required placeholder="Name" 
-                onChange={onChangeInput}  value={user.name}/>
+        <>
+                <div className="login-page">
+                    <form onSubmit={registerSubmit}>
+                        <h2>Register</h2>
+                    <input type="text" name="name" required placeholder="Name" 
+                        onChange={onChangeInput}  value={user.name}/>
 
-                <input type="email" name="email" required placeholder="Email" 
-                onChange={onChangeInput}  value={user.email}/>
+                        <input type="email" name="email" required placeholder="Email" 
+                        onChange={onChangeInput}  value={user.email}/>
 
-                <input type="password" name="password" required placeholder ="Password" value={user.password} 
-                onChange={onChangeInput}/>
-                
-                <div className="row">
-                    <button type="submit">Register</button>
-                    <Link to="/login">Login</Link>
+                        <input type="password" name="password" required placeholder ="Password" value={user.password} 
+                        onChange={onChangeInput}/>
+                        
+                        <div className="row">
+                            <button type="submit">Register</button>
+                            <Link to="/login">Login</Link>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
+                <ShopCategories />
+                <div>
+                   <CustomerReview />
+                </div>
+         </>
     )
 }
 

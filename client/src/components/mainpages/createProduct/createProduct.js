@@ -101,6 +101,8 @@ function CreateProduct() {
     }
 } 
 
+console.log(categories)
+
 const handleSubmit = async (e) => {
   e.preventDefault()
       try {

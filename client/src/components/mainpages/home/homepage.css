@@ -48,6 +48,10 @@
     border-radius: 5px;
 }
 
+.cus-review {
+    padding-bottom: 10%;
+}
+
 /* Media query for tablets and mobile */
 @media (max-width: 768px) {
     .section1 {

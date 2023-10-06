@@ -1,0 +1,65 @@
+.review-container {
+    display: flex;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 7vh;
+    height: 450px;
+    background-color: #F8F6F4;
+}
+
+
+.review-container-item {
+    /* This will allow the div items to grow and shrink */
+    min-width: 200px; /* Set a minimum width for the div items */
+    position: relative;
+    text-align: center; 
+    margin: 1%;
+    border: solid 1px white;
+    height: 250px;
+    border-radius: 1vh;
+    background-color: white;
+    
+    
+}
+
+.review-container-item p{
+    padding-top: 15%;
+}
+
+span{
+    font-family: "'Bree Serif', serif";
+}
+
+.review-container-item .star {
+        width: 10vh;
+        position: absolute;
+        left: 50%;
+        margin-top: 5%;
+        transform: translate(-50%, -50%); 
+}
+
+
+.user {
+    display: flex;
+    padding-top: 10%;
+}
+
+#deals {
+    position: relative;
+    min-width: 200px;
+    width: 1250px;
+    border: solid 1px white;
+    text-align: center; 
+    border-radius: 1vh;
+    background-color: white;
+    height: 300px;
+    overflow: hidden; /* To ensure the pseudo-element doesn't spill out */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/Fashion.jpg');
+    background-size: cover;   
+}
+
+#deals h2{
+    
+    font-family: "'Bree Serif', serif";
+}
+

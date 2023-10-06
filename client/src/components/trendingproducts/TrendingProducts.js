@@ -12,6 +12,7 @@ function TrendingProducts() {
     const params = useParams();
     const state = useContext(GlobalState)
     const [products]= state.ProductsAPI.products
+    const [categories, setCategories] = state.categoriesAPI.categories
     const[detailProduct,setDetailProduct] = useState([])
 
     useEffect(()=>{
@@ -24,22 +25,25 @@ function TrendingProducts() {
 
     console.log(products)
     const recentlyAddedProducts = [...products].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
-
+    console.log(recentlyAddedProducts)
 
   return (
-    <div className="trending-products-container">
-        <div className="trending-products-inner">
-            <h2 className="trending-products-title">Trending Products</h2>
-            <img src={Leaf} alt='' className="trending-products-image"/>
-            <div className="products-grid">
-                {
-                    recentlyAddedProducts.map(product => (
-                        <ProductItem key={product._id} product={product}/> 
-                    ))
-                }
+    <>
+        <div className="trending-products-container">
+            <div className="trending-products-inner">
+                <h2 className="trending-products-title">Trending Products</h2>
+                <img src={Leaf} alt='' className="trending-products-image"/>
+                <div className="products-grid">
+                    {
+                        recentlyAddedProducts.map(product => (
+                            <ProductItem key={product._id} product={product}/> 
+                        ))
+                    }
+                </div>
             </div>
         </div>
-    </div>
+        
+</>
   )
 }
 

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext}from 'react'
+import { GlobalState } from '../../../GlobalState'
 import { Link } from 'react-router-dom'
 import Organic from './images/organic.png'
 import Leaf from './images/leaf.png'
@@ -11,9 +12,13 @@ import Return from './images/return-cash.svg'
 
 import './homepage.css'
 import TrendingProducts from '../../trendingproducts/TrendingProducts'
+import ShopCategories from '../../shopcategory/ShopCategories'
+import CustomerReview from '../../customerreview/CustomerReview'
 
 
 function HomePage() {
+    const state = useContext(GlobalState)
+    const [products] = state.ProductsAPI.products;
     return (
         <>
             <section className='section1'>
@@ -28,6 +33,12 @@ function HomePage() {
                         Destination for Quality Food Products!</p><br/><br/>
                     <Link style={{backgroundColor: '#6A9738', borderRadius: '5px', padding: '12px 20px 12px 20px', color: 'white'}} to="/products" ><FontAwesomeIcon icon={faCartShopping} />SHOP NOW</Link>
                 </div>
+            </section>
+            <section className=''>
+                <ShopCategories />
+            </section>
+            <section >
+                <TrendingProducts/>
             </section>
             <section className='section2'>
                 <div className='section2cont'>
@@ -59,8 +70,9 @@ function HomePage() {
                     <p>No Questions Asked</p>
                 </div>
             </section>
-            <section>
-                <TrendingProducts/>
+           
+            <section className='cus-review'>
+                <CustomerReview/>
             </section>
         </>
     )

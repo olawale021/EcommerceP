@@ -62,6 +62,8 @@ function Categories() {
       alert(err.response.data.msg)
     }
   }
+
+  console.log(categories)
   return (
     <div className='categories'>
         <form onSubmit={createCategory}>
@@ -76,6 +78,7 @@ function Categories() {
         <div className='col'>
           {
             categories.map(category =>(
+              
               <div className='row' key={category._id}>
                   <p>{category.name}</p>
                   <div className='row-icon'>
