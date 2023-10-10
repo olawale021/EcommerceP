@@ -66,7 +66,7 @@ function ProductItem({product, isAdmin, callback, products, setCallback, setProd
                         <Link id="btn_buy" to="#!" onClick={()=>addCart(product)} >
                         BUY
                     </Link>
-                    <Link id="btn_view" to={`detail/${product._id}`}>
+                    <Link id="btn_view" to={`/detail/${product._id}`}>
                         VIEW
                     </Link>
                     </>

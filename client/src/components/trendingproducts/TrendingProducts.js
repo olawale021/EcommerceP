@@ -31,7 +31,7 @@ function TrendingProducts() {
     <>
         <div className="trending-products-container">
             <div className="trending-products-inner">
-                <h2 className="trending-products-title">Trending Products</h2>
+                <h2 className="trending-products-title">TRENDING PRODUCTS</h2>
                 <img src={Leaf} alt='' className="trending-products-image"/>
                 <div className="products-grid">
                     {
@@ -44,7 +44,7 @@ function TrendingProducts() {
         </div>
         
 </>
-  )
+    )
 }
 
 export default TrendingProducts;

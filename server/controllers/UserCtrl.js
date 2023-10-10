@@ -12,12 +12,12 @@ const userCtrl = {
 
             //check if email already exists
             const user = await Users.findOne({email})
-            if (user) return res.status(400).json({msg: "this email already exists"})
+            if (user) return res.status(400).json({msg: "This email already exists"})
 
 
             //check if password meets the length requirements
             if (password.length < 6)
-            return res.status(400).json({msg: 'password must be at least 6 characters'})
+            return res.status(400).json({msg: 'Password must be at least 6 characters'})
 
             const passwordHash = await bcrypt.hash(password, 10)
             const newUser = new Users({

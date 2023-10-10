@@ -40,7 +40,7 @@ function Login() {
 
     return (
         <>
-        <div className=''> 
+        <div className='login'> 
                 <div className='login-page'>
                     <h2>Log in to your account</h2> <br/><br/><br/>
                     <form onSubmit={loginSubmit}>
