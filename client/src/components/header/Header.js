@@ -14,6 +14,7 @@ function Header() {
     const [isLogged, setIsLogged] = state.userAPI.isLogged;
     const [isAdmin, setIsAdmin] = state.userAPI.isAdmin;
     const [cart] = state.userAPI.cart;
+    const [user] = state.userAPI.user;
 
     
 
@@ -39,7 +40,10 @@ function Header() {
     const loggedRouter = () => {
         return (
             <>
+
+                <li><Link to='/profile'><img src={User} alt='' width='30' /></Link></li>
                 <li><Link to='/' onClick={loggedOut}><img src={LogoutSvg} alt='' width='30' /></Link></li>
+    
             </>
         );
     };

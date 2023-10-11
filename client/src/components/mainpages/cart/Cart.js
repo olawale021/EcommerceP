@@ -7,37 +7,42 @@ import DeleteIcon from './images/delete.svg'
 import './cart.css'
 import ShopCategories from '../../shopcategory/ShopCategories'
 
+
 function Cart() {
   const state = useContext(GlobalState)
   const [cart, setCart] = state.userAPI.cart
+  const [user] = state.userAPI.user;
+  const userId = user._id;
   const [total, setTotal] = useState(0)
   const [token] = state.token
+  const [showOrderForm, setShowOrderForm] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState("Checkout");
+
   
     useEffect(()=>{
       const getTotal = () => {
         const total = cart.reduce((prev,item)=>{
           return prev + (item.price * item.quantity)
-
         }, 0)
-        setTotal(total)
+        setTotal(Math.round(total))       // set total get approximated value
       }
         getTotal()
     }, [cart])
-    console.log(cart)
+    
     const addtoCart = async () => {
       await axios.patch('/user/addcart', {cart}, {
         headers: {Authorization: token}
       })
     }
 
-
+console.log (user)
     const increment =(id , product) =>{
       cart.forEach(item => {
         if(item._id === id){
           item.quantity +=1
         }
       })
-      setCart ([...cart, product])
+      setCart ([...cart])
       addtoCart()
     }
 
@@ -76,10 +81,10 @@ function Cart() {
       </div>
       </>
       )
-  return (
-    <>
-      <div>
-        {
+      return (
+        <>
+          <div>
+          {
           cart.map(product =>(
             <div className='detail cart' key={product._id}>
                   <img src={product.images.url} alt=''/>
@@ -97,20 +102,146 @@ function Cart() {
           </div>
           ))
         }
-        <div className='total'>
-            <h3>Total : $ {total}</h3>
-            <Link to='#'>Payment</Link>
-        </div>
-      </div>
+            <div className='total'>
+              <h3>Total : $ {total}</h3>
+              <button onClick={() => {
+                    setButtonLabel("Please wait...");
+                    setTimeout(() => {
+                        setShowOrderForm(true);
+                    }, 500); 
+                    setButtonLabel("Checkout");
+                }}>
+                    {buttonLabel}
+              </button>
 
-      <div>
-        <ShopCategories />
-      </div>
+            </div>
+          </div>
+    
+          {showOrderForm && (
+             <OrderForm userId={userId} cart={cart.map(item => ({ productId: item._id, quantity: item.quantity }))} total={total} onComplete={() => setShowOrderForm(false)} />
+             )}
+    
+          <ShopCategories />
+        </>
+      );
+    }
+    
 
-    </>
+    function OrderForm({ userId, cart, total, onComplete }) {
+      console.log(cart)
+      const [address, setAddress] = useState({
+        street: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: ''
+      });
+
+      const [paymentMethod, setPaymentMethod] = useState('');
+
+      const handleAddressChange = e => {
+        const { name, value } = e.target;
+        setAddress(prevAddress => ({
+            ...prevAddress,
+            [name]: value
+        }));
+    };
     
+      const submitOrder = async (e) => {
+        e.preventDefault();
+        try {
+          const response = await axios.post('/user/orders', { 
+            userId: userId,
+            items: cart, 
+            totalAmount: total, 
+            shippingAddress: address,
+            paymentMethod: paymentMethod
+          });
+          if (response.status === 201) {
+            onComplete();
+            alert('Order placed successfully!');
+          } else {
+            alert('There was an issue placing your order.');
+          }
+        } catch (error) {
+          console.log(error);
+          alert('Error placing the order:', error.response.data.msg);
+        }
+      };
     
-  )
+      return (
+        <div style={{backgroundColor: '#FAF9F8'}}>
+        <form onSubmit={submitOrder}>
+          <h4>SHIPPING ADDRESS</h4>
+              <div className="address-inputs">
+                          <label>
+                              Street:
+                              <input 
+                                  type="text"
+                                  name="street"
+                                  value={address.street}
+                                  onChange={handleAddressChange}
+                                  required
+                              />
+                          </label>
+
+                          <label>
+                              City:
+                              <input 
+                                  type="text"
+                                  name="city"
+                                  value={address.city}
+                                  onChange={handleAddressChange}
+                                  required
+                              />
+                          </label>
+
+                          <label>
+                              State:
+                              <input 
+                                  type="text"
+                                  name="state"
+                                  value={address.state}
+                                  onChange={handleAddressChange}
+                              />
+                          </label>
+
+                          <label>
+                              Postal Code:
+                              <input 
+                                  type="text"
+                                  name="postalCode"
+                                  value={address.postalCode}
+                                  onChange={handleAddressChange}
+                                  required
+                              />
+                          </label>
+
+                          <label>
+                              Country:
+                              <input 
+                                  type="text"
+                                  name="country"
+                                  value={address.country}
+                                  onChange={handleAddressChange}
+                                  required
+                              />
+                          </label>
+                    </div>
+      
+                    <label>
+                      Payment Method:
+                      <select value={paymentMethod} onChange={e => setPaymentMethod(e.target.value)}>
+                      <option value="">Choose Payment Method</option>
+                        <option value="CreditCard">Credit Card</option>
+                        <option value="PayPal">PayPal</option>
+                        <option value="BankTransfer">Bank Transfer</option>
+                      </select>
+                    </label>
+                  <button type="submit">Submit Order</button>
+    </form>
+    </div>
+  );
 }
-
-export default Cart
+    
+    export default Cart;

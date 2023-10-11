@@ -11,6 +11,8 @@ import { GlobalState } from '../../GlobalState'
 import Categories from './categories/Categories'
 import CreateProduct from '../mainpages/createProduct/createProduct'
 import CategoryProducts from './categories/CategoryProducts'
+import UserProfile from './userprofile/userProfile'
+import OrderPage from './orders/OrderPage'
 
 
 function Pages() {
@@ -25,6 +27,8 @@ function Pages() {
             <Route path='products/edit_product/:id' element={isLogged ? <CreateProduct /> : <Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/profile' element={<UserProfile />} />
+            <Route path='/orders' element={<OrderPage />} />
             <Route path='/products' element={isLogged ? <Products /> : <Login />} />
             <Route path='/detail/:id' element={<DetailProduct />} />
             <Route path="/category/:category" element={<CategoryProducts />} />
