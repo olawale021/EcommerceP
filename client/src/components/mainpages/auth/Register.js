@@ -52,7 +52,7 @@ function Register() {
                 </Alert>
             )}
         <div className='login'>
-                <div className="login-page">
+                <div className="login-page" id='reg-page'>
                     <form onSubmit={registerSubmit}>
                         <h2>Register</h2>
                     <input type="text" name="name" required placeholder="Name" 
@@ -71,7 +71,7 @@ function Register() {
                     </form>
                 </div>
                 <ShopCategories />
-                <div>
+                <div className='cus-review'>
                    <CustomerReview />
                 </div>
             </div>

@@ -24,7 +24,7 @@ function Cart() {
         const total = cart.reduce((prev,item)=>{
           return prev + (item.price * item.quantity)
         }, 0)
-        setTotal(Math.round(total))       // set total get approximated value
+        setTotal(Math.round(total))       // set total to get approximated value
       }
         getTotal()
     }, [cart])
@@ -120,8 +120,9 @@ console.log (user)
           {showOrderForm && (
              <OrderForm userId={userId} cart={cart.map(item => ({ productId: item._id, quantity: item.quantity }))} total={total} onComplete={() => setShowOrderForm(false)} />
              )}
-    
-          <ShopCategories />
+          <div className='shop-ctgry'>
+              <ShopCategories />
+          </div>
         </>
       );
     }

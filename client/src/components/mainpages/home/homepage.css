@@ -1,77 +1,129 @@
+/* Reset and Global styles */
 * {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Section 1 Styles */
 .section1 {
     display: flex;
-    flex-direction: row;
-    padding-top: 2%;
+    padding: 2rem 5rem;
     background-color: #FAF9F8;
-    gap: 3%;
-    height: 90vh;
-    padding-left: 10vh;
-    padding-right: 15vh;
+    gap: 3rem;
+    min-height: 90vh;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-
-.section1-left, .section1-right {
+.section1-left,
+.section1-right {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.section1-right h1, p, h3 {
+.section1-right h1,
+.section1-right p,
+.section1-right h3 {
     font-family: 'Bree Serif', serif;
+    margin-bottom: 1rem;
 }
 
+/* Section 2 Styles */
 .section2 {
     background-color: #111111;
     display: flex;
     flex-wrap: wrap;
     color: white;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 1.5rem;
+    padding: 2rem;
 }
 
 .section2cont {
     background-color: #303030;
-    padding: 20px;
+    padding: 3rem;
     flex: 1;
-    max-width: calc(25% - 20px);
-    margin: 10px;
+    max-width: calc(25% - 1.5rem);
     text-align: center;
-    height: 20vh;
-    padding: 50px;
     border-radius: 5px;
 }
 
 .cus-review {
-    padding-bottom: 10%;
+    padding: 0 0 10rem 0;
 }
 
-/* Media query for tablets and mobile */
+/* Tablet */
 @media (max-width: 768px) {
     .section1 {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        padding: 2rem 1rem;
     }
 
-    .section1-left, .section1-right {
+    .section1-left {
+        order: 2; /* Make the left side come below right on tablets */
+    }
+
+    .section1-right {
+        order: 1; /* Make the right side come above left on tablets */
+        margin-bottom: 1.5rem;
+    }
+
+    .section1-left,
+    .section1-right {
         width: 100%;
     }
 
     .section2cont {
-        max-width: calc(50% - 20px);
+        max-width: calc(50% - 1rem);
+        padding: 2rem;
+    }
+
+    .cus-review {
+        padding: 0 0 35rem 0;
     }
 }
 
-/* Media query for mobile */
+/* Mobile */
 @media (max-width: 480px) {
+    .section1 {
+        padding: 5rem 0.5rem;
+    }
+
+    .section1-left img{
+        width: 400px;
+    }
+
+    .section1-right h1,
+    .section1-right p,
+    .section1-right h3 {
+        text-align: center;
+    }
+
+    .section2 {
+        gap: 1rem;
+    }
+
     .section2cont {
         max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .cus-review {
+        padding: 0 0 30rem 0;
+        background-color: #FAF9F8;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cus-review {
+        padding: 0 0 37rem 0;
+        background-color: #FAF9F8;
+    }
+
+    .section1-left img{
+        width: 350px;
     }
 }

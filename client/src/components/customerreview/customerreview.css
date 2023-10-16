@@ -52,8 +52,6 @@ span{
     text-align: center; 
     border-radius: 1vh;
     background-color: white;
-    height: 300px;
-    overflow: hidden; /* To ensure the pseudo-element doesn't spill out */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/Fashion.jpg');
     background-size: cover;   
 }
@@ -63,3 +61,50 @@ span{
     font-family: "'Bree Serif', serif";
 }
 
+@media (max-width: 992px) {
+    .review-container {
+        flex-direction: column;  /* Stack items vertically */
+        align-items: center;     /* Center items horizontally */
+    }
+
+    .review-container-item,
+    #deals {
+        width: 90%;      /* Give some side margins for readability */
+        margin-bottom: 2rem;  /* Space out items vertically */
+    }
+
+    .review-container-item p,
+    #deals h2 {
+        font-size: 1.5rem;  /* Adjust font size for readability */
+    }
+
+    #deals h2 {
+        padding-top: 10%;
+    }
+
+    .review-container-item .star {
+        width: 8vh;
+        margin-top: 3%;
+    }
+
+    .user {
+        justify-content: center;  /* Center the user icon and name */
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 576px) {
+    .review-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .review-container-item p,
+    #deals h2 {
+        font-size: 1.2rem;   /* Further adjust font size for small screens */
+    }
+
+    .review-container-item .star {
+        width: 6vh;
+    }
+}

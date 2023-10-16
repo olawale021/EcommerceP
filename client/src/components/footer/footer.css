@@ -3,13 +3,13 @@
     justify-content: space-between;
     flex-wrap: wrap;
     background-color: #001624; 
-    padding: 20px;
-    font-family: 'Arial', sans-serif; 
-    height: 300px;
+    padding: 20px 40px;
+    font-family: 'Arial', sans-serif;
+    color: white;
 }
 
 .footer img {
-    max-width: 100px; 
+    max-width: 100px;
     height: auto;
     margin-bottom: 20px;
     padding-bottom: 6vh;
@@ -17,13 +17,13 @@
 
 .footer p {
     max-width: 400px;
-    margin-top: 0;
     color: white;
+    line-height: 1.5;
 }
 
 .footer-item {
     flex: 1;
-    margin: 0 20px;
+    padding: 0 10px;
 }
 
 .footer-item h3 {
@@ -35,25 +35,27 @@
 .footer-item li {
     list-style: none;
     margin-bottom: 10px;
-    
 }
 
 .footer-item a {
     text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
     color: white;
+    transition: color 0.3s;
+    padding: 2px 0;
+    display: block;
 }
 
 .footer-item a:hover {
     color: #91C355; 
+    border-bottom: 2px solid #91C355;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
+/* Mobile Small */
+@media (max-width: 480px) {
     .footer {
         flex-direction: column;
         align-items: center;
+        padding: 10px; 
     }
 
     .footer img {
@@ -61,10 +63,50 @@
     }
 
     .footer-item {
-        margin: 20px 0;
+        margin: 15px 0;
+        text-align: center;
     }
 
-    .footer-item li {
+    .footer p {
         text-align: center;
+        margin: 0 5px;
+    }
+}
+
+/* Mobile Large */
+@media (min-width: 481px) and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .footer img {
+        margin-bottom: 15px;
+    }
+
+    .footer-item {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .footer p {
+        text-align: center;
+        margin: 0 10px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .footer {
+        padding: 20px;
+    }
+
+    .footer img {
+        margin: 0 15px;
+    }
+
+    .footer-item {
+        margin: 10px;
     }
 }

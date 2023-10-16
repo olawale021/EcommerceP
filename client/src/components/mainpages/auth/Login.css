@@ -7,7 +7,7 @@
     max-width: 500px;
     width: 100%; /* To ensure the container fits the screen on mobile devices */
     height: 300px; /* let it adjust its height */
-    padding: 10px 5%; /* Reduce padding on smaller screens */
+    padding: 15px 5%; /* Reduce padding on smaller screens */
     border-radius: 7px;
     background-color: #FAF9F8;
     box-sizing: border-box; /* To include padding in total width */
@@ -54,4 +54,16 @@
     letter-spacing: 1.3px;
     text-transform: uppercase;
     font-family: 'Bree Serif', serif;
+}
+
+
+@media (max-width: 480px) {
+    .login-page{
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+
+    #reg-page {
+        
+    }
 }

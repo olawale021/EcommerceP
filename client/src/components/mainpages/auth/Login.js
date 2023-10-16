@@ -73,7 +73,7 @@ function Login() {
                 </div>
         </div>
          <ShopCategories />
-         <div>
+         <div className='cus-review'>
             <CustomerReview/>
          </div>
          </>

@@ -110,3 +110,10 @@ button[type="submit"]:hover {
         flex: 1;
     }
 }
+
+
+@media (max-width: 480px) {
+    .shop-ctgry {
+        margin-top: 35vh;
+    }  
+}

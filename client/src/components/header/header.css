@@ -1,48 +1,196 @@
-header{
-    min-height: 50px;
+header {
+    min-height: 60px;
     width: 100%;
     overflow: hidden;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 20px; /* Added padding for some spacing on smaller devices */
     background: rgb(255, 255, 255);
 }
 
-header a{
+header a {
     font-family: 'Bree Serif', serif;
     color: black;
+    text-decoration: none; /* Optional: remove the underline from the links */
+    transition: opacity 0.3s ease; /* Added transition for a smoother hover effect */
 }
 
-header ul li{
-    display: inline-block;
-    opacity: 0.7;
-    padding:0 20px;
+header a:hover {
+    opacity: 0.7; /* Apply the hover effect to the anchor tag */
 }
 
-.header-icons{
-    position: relative;
+header ul {
     display: flex;
-    gap: 10%;
-    
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.header-icons li{
+header ul li {
+    padding: 0 20px;
+    transition: opacity 0.3s ease;
+}
+
+header ul li:hover {
+    opacity: 0.7; /* Apply the hover effect to the list items */
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.header-icons li {
     list-style: none;
+    position: relative; /* Added relative positioning here */
 }
 
-.header-icons span{
+.header-icons span {
     background: #91C355;
     border-radius: 10px;
     color: white;
     position: absolute;
-    top:-10px;
-    right:-10px;
-    padding: 5px 5px;
+    top: -10px;
+    right: -10px;
+    padding: 3px 7px;
     font-size: 10px;
 }
+
 .admin-cre {
     display: flex;
-    padding:0 20px;
+    gap: 15px;
+    align-items: center; /* Center items vertically */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#cart {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transition: max-height 0.3s ease;
+    max-height: 500px; /* default height for larger screens */
+}
+
+ul.active {
+    max-height: 500px; 
+}
+
+@media (min-width: 768px) {
+    .menu-btn {
+        visibility: hidden;
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+    header {
+        padding: 0 10px; /* Decrease padding for slightly smaller screens */
+    }
+
+    header ul {
+        gap: 8px; /* Adjust gap for better spacing */
+    }
+
+    header ul li {
+        padding: 0 15px; /* Adjust padding for list items */
+    }
+
+    .header-icons {
+        gap: 10px; /* Adjust gap for icons */
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    header {
+        padding: 0 5px; 
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    #cart {
+        margin-left: 15px;
+    }
+
+    header ul {
+        gap: 5px; 
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    header ul.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This will center the li items horizontally */
+        justify-content: center; /* This will center the li items vertically */
+        background-color: white;
+
+    }
+
+    /* Hide individual li by default */
+    header ul li {
+        display: none;
+    }
+
+    /* Display li when menu is active */
+    header ul.active li {
+        display: block;
+        margin: 10px 0; /* This adds vertical spacing between each li. Adjust the value as needed. */
+    }
+
+    .menu-btn {
+        margin-left: 50px;
+        width: 20px;
+        list-style: none;
+    }
+
+    .menu-btn img {
+        width: 40px; 
+        height: auto; 
+    }
     
+
+    .cancel-btn {
+        padding: 5px 10px;
+        position: absolute;
+        top: 3vh;
+        left: 300px;
+    }
+
+    .cancel-btn img {
+        width: 40px;
+        height: auto;
+    }
 }
