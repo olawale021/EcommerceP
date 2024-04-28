@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/EcommerceP/client/static/css/main.56506ba3.css",
+    "main.js": "/EcommerceP/client/static/js/main.2055bea1.js",
+    "static/media/organic.png": "/EcommerceP/client/static/media/organic.0501ecae74983b3eca7f.png",
+    "static/media/Electronics.jpg": "/EcommerceP/client/static/media/Electronics.e2d11df6e30b3e935b4f.jpg",
+    "static/media/fitness.jpg": "/EcommerceP/client/static/media/fitness.4a527a94f0f200078251.jpg",
+    "static/media/organicstore.svg": "/EcommerceP/client/static/media/organicstore.119db71e5e689b1c4986a40a797b5d88.svg",
+    "static/media/pets.jpg": "/EcommerceP/client/static/media/pets.2ba012bf94fd8ea0b64c.jpg",
+    "static/media/5stars.png": "/EcommerceP/client/static/media/5stars.6226c93d8756c90bafc7.png",
+    "static/media/Fashion.jpg": "/EcommerceP/client/static/media/Fashion.1188313af48a2832fafb.jpg",
+    "static/media/return-cash.svg": "/EcommerceP/client/static/media/return-cash.7f331a24724212d2063ffc6f947761af.svg",
+    "static/media/money.svg": "/EcommerceP/client/static/media/money.3dff44cec58646307f648768b7b26c82.svg",
+    "index.html": "/EcommerceP/client/index.html",
+    "static/media/shipping-truck.svg": "/EcommerceP/client/static/media/shipping-truck.3863a2929c057c5a382acd71c5c243c9.svg",
+    "static/media/delete.svg": "/EcommerceP/client/static/media/delete.74b17ac28365fcaa7139e2fbb6329453.svg",
+    "static/media/user.svg": "/EcommerceP/client/static/media/user.b5aa31512a2e6da2003f96fc120178e6.svg",
+    "static/media/cancel-svg.svg": "/EcommerceP/client/static/media/cancel-svg.200bf7bd876298e0b7f406a63608bb92.svg",
+    "static/media/edit.svg": "/EcommerceP/client/static/media/edit.efda08a95b39a6a531c9321c1ea85ad8.svg",
+    "static/media/log-out.svg": "/EcommerceP/client/static/media/log-out.0dbfeb7f8cd1c3c6f0e344ae14937580.svg",
+    "static/media/certified.svg": "/EcommerceP/client/static/media/certified.f70641939529930556e06bfe8c3c06e1.svg",
+    "static/media/menu-svg.svg": "/EcommerceP/client/static/media/menu-svg.eef677a784d7baec8465ad262399520a.svg",
+    "static/media/cart.svg": "/EcommerceP/client/static/media/cart.0312147298b7f757bf0e67b674447789.svg",
+    "static/media/delete-filled.svg": "/EcommerceP/client/static/media/delete-filled.267183f8704e4d630fccafffe8ca3a1e.svg",
+    "static/media/update-page.svg": "/EcommerceP/client/static/media/update-page.18cd50d4446dc68c39e360591a9d397e.svg",
+    "main.56506ba3.css.map": "/EcommerceP/client/static/css/main.56506ba3.css.map",
+    "main.2055bea1.js.map": "/EcommerceP/client/static/js/main.2055bea1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56506ba3.css",
+    "static/js/main.2055bea1.js"
+  ]
+}
