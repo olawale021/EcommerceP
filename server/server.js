@@ -46,5 +46,5 @@ const PORT = process.env.PORT || 8000
 
 //Start Server
 app.listen(PORT , ()=>{
-    console.log('Server is up and running', PORT)
+    console.log('Server is up and running!', PORT)
 })
