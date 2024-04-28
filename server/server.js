@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
+const path = require('path');
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use('/api', require('./routers/categoryRouter'))
 app.use('/api', require('./routers/productRouter'))
 app.use('/api', require('./routers/upload'))
 app.use('/user', require('./routers/orderRouter'))
+
 
 
 
@@ -36,10 +38,12 @@ mongoose.connect(URI, {
         console.error('Error connecting to MongoDB:', err);
 });
 
+app.use(express.static(path.join(__dirname, '../client/build')));
+
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  });
 
 const PORT = process.env.PORT || 8000
 
